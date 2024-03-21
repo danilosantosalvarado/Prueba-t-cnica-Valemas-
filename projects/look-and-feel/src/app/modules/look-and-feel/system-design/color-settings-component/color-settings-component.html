@@ -1,0 +1,30 @@
+<div>
+  <h2>Control de colores</h2>
+  <!-- <form #ctrlColorForm="ngForm" (ngSubmit)="submitColors(ctrlColorForm.form);"> -->
+  <form>
+    <!-- <div>
+      <label for="primaryColor">Color primario:</label>
+      <input type="color" id="primaryColor" name="primaryColor" [(ngModel)]="primaryColor" #nameField="ngModel" (ngValue)="primaryColor">
+    </div>
+    <div>{{ primaryColor }}</div>
+    <div>
+      <label for="secondaryColor">Color secundario:</label>
+      <input type="color" id="secondaryColor" name="secondaryColor" [(ngModel)]="secondaryColor">
+    </div>
+    <div>
+      <label for="tertiaryColor">Color terciario:</label>
+      <input type="color" id="tertiaryColor" name="tertiaryColor" [(ngModel)]="tertiaryColor">
+    </div>
+    <div>
+      <label for="backgroundColor">Color de fondo:</label>
+      <input type="color" id="backgroundColor" name="backgroundColor" [(ngModel)]="backgroundColor">
+    </div> -->
+    <div *ngFor="let ctrl of ctrlColors; let i=index">
+      <label for="primaryColor">{{ctrl.title}}</label>
+      <p>{{ctrl.description}}</p>
+      <input type="color" [(ngModel)]="ctrl.color" name="colorSameName" [defaultValue]="ctrl.color" />
+      <div>{{ctrl.color}}</div>
+    </div>
+    <button type="button" (click)="onSave()">Guardar</button>
+  </form>
+</div>
